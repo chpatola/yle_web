@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index.css') }}">
+  <title>Election Result Predictor</title>
+
+</head>
+
+<body>
+  <div class="login">
+    <h1>Parliament Election Result Predictor</h1>
+    <p>With this program, you can define candidate characteristics and simulate their chance of getting elected into the
+      Finnish parliament.</p>
+    <p>The <a
+        href="https://www.avoindata.fi/data/fi/dataset/eduskuntavaalien-2015-ylen-vaalikoneen-vastaukset-ja-ehdokkaiden-taustatiedot">data</a>
+      for the model comes from the elections 2015.</p>
+      
+    <h3>Questions</h3>
+
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+
+      Age in years, for example 32: <input type="number" name="age" />
+      <hr>
+      Sex:<input type="number" name="sex" required="required" />
+      <ul>
+        <li>female = 0</li>
+        <li>male = 1</li>
+      </ul>
+      <hr>
+      Celebrity: <input type="number" name="celebrity" required="required" />
+      <ul>
+        <li>no = 0</li>
+        <li>yes = 1</li>
+      </ul>
+      <hr>
+      Currently in parliament: <input type="number" name="parliament" required="required" />
+      <ul>
+        <li>no = 0</li>
+        <li>yes = 1</li>
+      </ul>
+      <hr>
+      Mother toungue: <input type="number" name="mother" required="required" />
+      <ul>
+        <li>not finnish or swedish = 0</li>
+        <li>swedish = 1</li>
+        <li>finnish = 2:</li>
+      </ul>
+      <hr>
+      Number of languages candidate knows: <input type="number" name=lang required="required" />
+      <hr>
+      Has twitter:
+      <input type="number" name="twitter" required="required" />
+      <ul>
+        <li>no = 0</li>
+        <li>yes = 1</li>
+      </ul>
+      <hr>
+
+
+      Has children:
+      <input type="number" name="kids" required="required" />
+      <ul>
+        <li>no = 0</li>
+        <li>yes = 1</li>
+      </ul>
+      <hr>
+
+      <hr>
+
+      Employer: <input type="number" name="empl" required="required" />
+      <ul>
+        <li>not working = 0,</li>
+        <li>public employer = 1</li>
+        <li>other than public, private or not working = 2</li>
+        <li>private employer = 3</li>
+      </ul>
+
+      <hr>
+
+      Education level:
+      <input type="number" name="educ" required="required" />
+      <ul>
+        <li>elementary school = 0</li>
+        <li>vocational school or similar = 1</li>
+        <li>university / university of applied sciences =2</li>
+        <li>other = 3</li>
+      </ul>
+
+      <hr>
+
+      Work status: <input type="number" name="work" required="required" />
+      <ul>
+        <li>expert/public officer/higly educated = 0</li>
+        <li>retired = 1</li>
+        <li>management/leading position = 2</li>
+        <li>other than included on this list = 3</li>
+        <li>farmer = 4</li>
+        <li>student = 5</li>
+        <li>artist = 6</li>
+        <li>blue collar worker = 7</li>
+        <li>entreprenour = 8</li>
+      </ul>
+
+      <hr>
+
+      Member in current prime minister party: <input type="number" name="party" required="required" />
+      <ul>
+        <li>no = 0</li>
+        <li>yes = 1</li>
+      </ul>
+
+      <hr>
+
+      Has external funding for election: <input type="number" name="ext" required="required" />
+      <ul>
+        <li>no = 0</li>
+        <li>yes = 1</li>
+      </ul>
+
+      <hr>
+
+      Election budget: <input type="number" name="budjel" required="required" />
+      <ul>
+        <li>less than 1k € = 0</li>
+        <li>1-5k € = 1</li>
+        <li>5-10 k € = 2</li>
+        <li>10-20k € =3</li>
+        <li>20-50k € = 4</li>
+        <li>more than 50k € = 5</li>
+      </ul>
+      <hr>
+
+      Yearly income: <input type="number" name=" income" required="required" />
+      <ul>
+        <li>less than 20k € = 0</li>
+        <li>20-30k € = 1</li>
+        <li>30-50k € = 2</li>
+        <li>50-70k € = 3</li>
+        <li>70-100k € = 4</li>
+        <li>more than 100k € = 5</li>
+      </ul>
+
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+    <br>
+    <p class="pred">{{ prediction_text }}</p>
+
+</body>
+
+</html>
