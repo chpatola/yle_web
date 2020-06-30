@@ -1,4 +1,4 @@
-import numpy as np
+gimport numpy as np
 from flask import Flask,render_template, request, jsonify, url_for, redirect
 import pickle
 import joblib
