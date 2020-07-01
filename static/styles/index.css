@@ -14,7 +14,7 @@ body {
   }
   
   input {
-    width: 50px;
+    width: 194px;
     height: 30px;
    line-height: 1;
   }
@@ -23,17 +23,25 @@ body {
   }
   ul {
     margin: 0;
-    
   }
   button {
-    width: 200px;
+    width: 100px;
     height: 50px;
     font-size: medium;
     margin-top: 20px;
+    margin-left: 5px;
   
   }
-  .pred {
-    border: 5px;
-    border-color: crimson;
+  select {
+    height: 30px; 
+    width: 200px;
+    font-size: medium; 
+
+    
   }
+  
+  .result {
+    margin-left: 5px;
+  }
+  
   

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="static/styles/index.css?version=21">
+    <link rel="stylesheet" type="text/css" href="static/styles/index.css?version=19">  
     <title>Election Result Predictor</title>
 
 </head>
@@ -19,24 +19,24 @@
             for the model comes from the elections 2015.</p>
 
         <h3>Questions about the candidate</h3>
-
+       
         <form action="/predict" method="post">
             <label>Age (years) </label>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input type="number" name="age" required="required" />&nbsp;
-            <label>Sex</label>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <select name="sex">
-                <option value="0">male</option>
-                <option value="1">female</option>
-            </select>
+                <label>Sex</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <select name="sex">
+                    <option value="0">male</option>
+                    <option value="1">female</option>
+                </select> 
             <br>
             <label>Celebrity</label>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <select name="celebrity">
-                <option value="0">no</option>
-                <option value="1">yes</option>
-            </select>&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <select name="celebrity">
+                    <option value="0">no</option>
+                    <option value="1">yes</option>
+                </select>&nbsp;
             <label>Currently in parliament</label>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <select name="parli">
@@ -44,21 +44,16 @@
                 <option value="1">yes</option>
             </select>
             <br>
-            <label>Education level</label>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <select name="educ">
-                <option value="0">elementary school</option>
-                <option value="1">vocational school or similar</option>
-                <option value="2">university / university of applied sciences</option>
-                <option value="3">other</option>
-            </select>&nbsp;
             <label>Mother toungue</label>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <select name="motherT">
                 <option value="2">finnish</option>
                 <option value="1">swedish</option>
                 <option value="0">other than finnish or swedish</option>
             </select>&nbsp;
+            <label>Number of known languages </label>
+            &nbsp;&nbsp;
+            <input type="number" name="languages"required="required" />
             <br>
             <label>Has twitter account</label>
             &nbsp;
@@ -67,7 +62,7 @@
                 <option value="1">yes</option>
             </select>&nbsp;
             <label>Has children</label>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <select name="kids">
                 <option value="0">no</option>
                 <option value="1">yes</option>
@@ -81,8 +76,17 @@
                 <option value="3">private employer</option>
                 <option value="2">other</option>
             </select>&nbsp;
+            <label>Education level</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <select name="educ">
+                <option value="0">elementary school</option>
+                <option value="1">vocational school or similar</option>
+                <option value="2">university / university of applied sciences</option>
+                <option value="3">other</option>
+            </select>
+            <br>
             <label>Work status</label>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <select name="work">
                 <option value="5">student</option>
                 <option value="7">blue collar worker</option>
@@ -94,11 +98,7 @@
                 <option value="1">retired</option>
                 <option value="3">other</option>
             </select>&nbsp;
-            <br>
-            <label>Known languages </label>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="number" name="languages" required="required" />&nbsp;
-            <label>In current prime minister party</label>
+            <label>In current prime minister party</label>&nbsp; 
             <select name="party">
                 <option value="0">no</option>
                 <option value="1">yes</option>
@@ -109,12 +109,11 @@
                 <option value="0">no</option>
                 <option value="1">yes</option>
             </select>&nbsp;
-
             <label>Election budget</label>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <select name="Ebud">
                 <option value="0">less than 1k €</option>
-                <option value="1">1-5k € </option>
+                <option value="">1-5k € </option>
                 <option value="2">5-10k €</option>
                 <option value="3">10-20k €</option>
                 <option value="4">20-50k € </option>
@@ -125,7 +124,7 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <select name="Income">
                 <option value="0">less than 20k €</option>
-                <option value="1">20-30k € </option>
+                <option value="">20-30k € </option>
                 <option value="2">30-50k €</option>
                 <option value="3">50-70k €</option>
                 <option value="4">70-100k € </option>
@@ -136,7 +135,9 @@
         </form>
         <br>
         <br>
+
         <p class="pred">{{ prediction_text }}</p>
+
 
 </body>
 
