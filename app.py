@@ -4,6 +4,9 @@ import pickle
 import joblib
 import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
+# Env is flaks-test
+# Start this is python app.py
+
 
 app = Flask(__name__)
 model = joblib.load(open('model.pkl', 'rb'))

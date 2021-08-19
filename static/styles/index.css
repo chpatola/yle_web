@@ -35,13 +35,12 @@ body {
   select {
     height: 30px; 
     width: 200px;
-    font-size: medium; 
-
-    
+    font-size: medium;
   }
   
   .result {
     margin-left: 5px;
   }
+
   
   
