@@ -18,6 +18,7 @@ Now you can open localhost:5000 in your browser and use the app there.
 
 
 <h4>Run via Docker</h4>
+Make sure you have docker installed: https://docs.docker.com/get-docker/
 You can use the Docker image provided here https://hub.docker.com/repository/docker/chpatola/yle_web.
 
 The Dockerfile is also uploaded in this repository. Execute the following commands in your terminal.
