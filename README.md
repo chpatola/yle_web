@@ -1,5 +1,5 @@
 <h1>Election Predictor</h1>
-<p>This is the web version of the project found here: https://github.com/chpatola/election_predicter</p>
+<p>This is the flask web version of the project found here: https://github.com/chpatola/election_predicter</p>
 <p>Try the app here: https://yle-election-predictor.herokuapp.com/</p>
 
 <h2>Instructions for running the project locally</h2>
