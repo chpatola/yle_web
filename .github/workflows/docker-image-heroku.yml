@@ -1,4 +1,4 @@
-name: Release DevOps with Docker # Name of the workflow
+name: Release DevOps with Docker and publish to Heroku # Name of the workflow
 
 # On a push to the branch named master
 on:
