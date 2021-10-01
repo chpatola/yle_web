@@ -14,7 +14,7 @@ jobs:
     # Checkout to the repository 
     - uses: actions/checkout@v2 
 
-    # We need to login so we can later push the image without issues. 
+    # We need to login so we can later push the image without issues. g
     - name: Login to DockerHub
       uses: docker/login-action@v1 
       with: 
