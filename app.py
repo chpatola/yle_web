@@ -1,16 +1,13 @@
-import numpy as np
-from flask import Flask, render_template, request, jsonify, url_for, redirect
-import pickle
+"""Makes prediction how high a candidate's chnage is to get elected into parliament"""
+from flask import Flask, render_template, request, jsonify
 import joblib
+import numpy as np
 import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
-# Env is flaks-test
-# Start this is python app.py
-
+# Env is flask-test
 
 app = Flask(__name__)
 model = joblib.load(open('model.pkl', 'rb'))
-
 
 def budgetRace(inputArray):
     if inputArray[-2] == 0:
@@ -26,8 +23,7 @@ def budgetRace(inputArray):
     elif inputArray[-2] == 5:
         inputArray[-2] = 90000
     else:
-        int_features[-2] = 15000
-
+        inputArray[-2] = 15000
 
 def IncomeRace(inputArray):
     if inputArray[-1] == 0:
@@ -45,7 +41,6 @@ def IncomeRace(inputArray):
     else:
         inputArray[-1] = 40000
 
-
 def predResult(probInput):
     basetext = "Change to get elected is "
     if probInput < 30:
@@ -59,30 +54,23 @@ def predResult(probInput):
     else:
         return basetext + "high (score 5/5)"
 
-
 @app.route('/')
 def home():
     return render_template('index.html')
-
 
 @app.route("/form")
 def form():
     return render_template('form.html')
 
-
 @app.route('/form-handler', methods=['POST'])
 def handle_data():
     return jsonify(request.form)
 
-
 @app.route('/predict', methods=['POST', 'GET'])
 def predict():
     int_features = [int(x) for x in request.form.values()]
-    print(int_features)
     budgetRace(int_features)
     IncomeRace(int_features)
-    print(int_features)
-
     mylist0 = [32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 500, 10000]
     mylist1 = [32, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3000, 25000]
     mylist2 = [32, 1, 1, 1, 2, 2, 1, 1, 2, 2, 2, 1, 1, 7500, 40000]
@@ -92,12 +80,21 @@ def predict():
     mylist6 = [32, 1, 1, 1, 1, 0, 1, 1, 1, 6, 0, 1, 1, 500, 10000]
     mylist7 = [32, 1, 1, 1, 1, 0, 1, 1, 1, 7, 0, 1, 1, 500, 10000]
     mylist8 = [32, 1, 1, 1, 1, 0, 1, 1, 1, 8, 0, 1, 1, 500, 10000]
-
-    mydataf = pd.DataFrame([int_features, mylist0, mylist1, mylist2, mylist3, mylist4, mylist5, mylist6, mylist7, mylist8], columns=['age',
-                                                                                                                                     'sex', 'celebrity', 'currently_in_parliament', 'education',
-                                                                                                                                     'mother_tongue', 'twitter_account', 'children', 'employer',
-                                                                                                                                     'work_status', 'languages_known', 'PM_party',
-                                                                                                                                     'external_election_funding', 'elect_budget_new ', 'yearly_income_new'])
+    mydataf = pd.DataFrame([int_features,
+                            mylist0,
+                            mylist1,
+                            mylist2,
+                            mylist3,
+                            mylist4,
+                            mylist5,
+                            mylist6,
+                            mylist7,
+                            mylist8],
+                            columns=['age',
+                                     'sex', 'celebrity', 'currently_in_parliament', 'education',
+                                     'mother_tongue', 'twitter_account', 'children', 'employer',
+                                     'work_status', 'languages_known', 'PM_party',
+                                     'external_election_funding', 'elect_budget_new ', 'yearly_income_new'])
     crit1 = mydataf.dtypes != object
     cat2 = mydataf.columns[crit1].tolist()
     cat3 = cat2[4:10]
@@ -118,6 +115,5 @@ def predict():
     # return jsonify(output)
     return render_template('result.html', prediction_text=outcome)
 
-
 if __name__ == "__main__":
-    app.run(host ='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0', debug=True)

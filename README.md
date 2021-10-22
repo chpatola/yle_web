@@ -11,8 +11,9 @@ You can choose to run the project either via Docker or manually.
 2. Make sure pip is installed: https://pip.pypa.io/en/stable/installation/
 3. Install all packages mentioned in requirements.txt
 4. Start the app in your terminal
-      
-        python app.py
+```      
+python app.py
+```
 
 Now you can open localhost:5000 in your browser and use the app there.
 
@@ -22,11 +23,13 @@ Make sure you have docker installed: https://docs.docker.com/get-docker/.
 
 You can use the Docker image provided here https://hub.docker.com/repository/docker/chpatola/yle_web.
 
-The Dockerfile is also uploaded in this repository. Execute the following commands in your terminal.
+The Dockerfile is also uploaded in this repository. Execute the following two commands in your terminal.
 
-    1. docker image pull chpatola/yle_web
-    2. docker run -p 5000:5000 chpatola/yle_web
-    
+```
+docker image pull chpatola/yle_web
+docker run -p 5000:5000 chpatola/yle_web
+```    
+
 Now you can open localhost:5000 in your browser and use the app there.    
     
     
